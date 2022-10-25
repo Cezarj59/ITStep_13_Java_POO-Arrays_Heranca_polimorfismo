@@ -1,6 +1,7 @@
-<h2>ITStep_13_Java_POO-Arrays_eranca_polimorfismo.</h2>
+<h2>ITStep_13_Java_POO-Arrays_Heranca_polimorfismo.</h2>
 
-<p>Sistema de Cadastro e Consulta de Alunos e Professores - Arrays/Introdução a Herança e Polimorfismo em JAVA..</p>
+<p>Sistema de Cadastro e Consulta de Alunos e Professores - Arrays/Introdução a Herança e Polimorfismo em JAVA.</p>
+<p>Manipulando Array em JAVA, criando um método para que o array se auto-incremente.</p>
 
 <ul><h3>Tópicos</h3>
 <li>POO</li>
