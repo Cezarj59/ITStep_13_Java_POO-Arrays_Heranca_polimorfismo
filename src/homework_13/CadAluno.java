@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class CadAluno extends Pessoas {
 
     static Scanner read = new Scanner(System.in);
-    static CadAluno[] cadA = new CadAluno[1];
-    static int qtdA = 0;
+    static CadAluno[] cadA = new CadAluno[0];
 
     private String turma, turno;
 
@@ -50,9 +49,8 @@ public class CadAluno extends Pessoas {
         System.out.print("Digite o turno: ");
         String turno = read.nextLine();
 
-        cadA[qtdA] = new CadAluno(turma, turno, nome, dataNasc, cpf);
-        qtdA++;
-        aumentaArray(cadA);
+        cadA = aumentaArray(cadA);
+        cadA[cadA.length - 1] = new CadAluno(turma, turno, nome, dataNasc, cpf);
 
         System.out.println("\nCadastro efetuado com sucesso!!!\n");
     }
@@ -87,8 +85,10 @@ public class CadAluno extends Pessoas {
 
     private static CadAluno[] aumentaArray(CadAluno[] c) {
         CadAluno[] aux = new CadAluno[c.length + 1];
-        for (int i = 0; i < c.length; i++) {
-            aux[i] = c[i];
+        if (c.length > 0) {
+            for (int i = 0; i < c.length; i++) {
+                aux[i] = c[i];
+            }
         }
         return aux;
     }
