@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class CadProfessor extends Pessoas {
 
     static Scanner read = new Scanner(System.in);
-    static CadProfessor[] cadP = new CadProfessor[1];
-    static int qtdP = 0;
+    static CadProfessor[] cadP = new CadProfessor[0];
 
     private String turnos, materias;
 
@@ -51,14 +50,12 @@ public class CadProfessor extends Pessoas {
         System.out.print("Digite os turnos: ");
         String turnos = read.nextLine();
 
-        cadP[qtdP] = new CadProfessor(turnos, materias, nome, dataNasc, cpf);
-        qtdP++;
-        aumentaArray(cadP);
-        
+        cadP = aumentaArray(cadP);
+        cadP[cadP.length - 1] = new CadProfessor(turnos, materias, nome, dataNasc, cpf);
+
         System.out.println("\nCadastro efetuado com sucesso!!!\n");
     }
 
-    
     public static void exibeProfessor() {
 
         System.out.println("\n\n==============Relatório de Cadastro de Professores==============");
@@ -67,7 +64,7 @@ public class CadProfessor extends Pessoas {
             System.out.println("\n ## Não há professores Cadastrados! ##\n\n");
         } else {
 
-            for (int i = 0; i < qtdP; i++) {
+            for (int i = 0; i < cadP.length; i++) {
                 System.out.println("\n------ Cadastro: " + (i + 1) + " ------");
                 System.out.println("\nNome: " + cadP[i].getNome()
                         + "\nData de Nascimento: " + cadP[i].getDataNasc()
@@ -79,11 +76,13 @@ public class CadProfessor extends Pessoas {
 
         }
     }
-    
-     private static CadProfessor[] aumentaArray(CadProfessor[] c) {
+
+    private static CadProfessor[] aumentaArray(CadProfessor[] c) {
         CadProfessor[] aux = new CadProfessor[c.length + 1];
-        for (int i = 0; i < c.length; i++) {
-            aux[i] = c[i];
+        if (c.length > 0) {
+            for (int i = 0; i < c.length; i++) {
+                aux[i] = c[i];
+            }
         }
         return aux;
     }
